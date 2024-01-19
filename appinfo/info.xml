@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <!--
+    SPDX-FileCopyrightText: Ucar Solutions UG (haftungsbeschränkt) <info@ucar-solutions.de>
+    SPDX-License-Identifier: CC0-1.0
+    -->
+    <id>registertocontact</id>
+    <name>Register To Contact</name>
+    <summary>Adds Users to Contacts after Register</summary>
+    <description><![CDATA[Add Users to Contacts After Registration in Nextcloud&quot;: This feature streamlines the process of contact creation in Nextcloud by automatically adding newly registered users to the address book.]]></description>
+    <version>0.0.1</version>
+    <licence>agpl</licence>
+    <author mail="info@ucar-solutions.de" homepage="https://ucar-solutions.de">Ucar Solutions UG (haftungsbeschränkt)</author>
+    <namespace>RegisterToContact</namespace>
+    <category>workflow</category>
+    <bugs>https://github.com/Ucar-Solutions/nc-register-2-contact/issues</bugs>
+    <dependencies>
+        <nextcloud min-version="24" max-version="28"/>
+    </dependencies>
+    <navigations>
+        <navigation>
+            <name>Register To Contact</name>
+            <route>registertocontact.page.index</route>
+        </navigation>
+    </navigations>
+</info>
