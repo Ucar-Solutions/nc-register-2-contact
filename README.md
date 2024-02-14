@@ -3,14 +3,25 @@ SPDX-FileCopyrightText: Ucar Solutions UG (haftungsbeschränkt) <info@ucar-solut
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# Register To Contact
-Place this app in **nextcloud/apps/**
+# 🤝 Register To Contact App for Nextcloud
 
-## Building the app
+🌟 **Welcome to the Register To Contact app for Nextcloud!** This app automagically adds newly created users as contacts to all existing users, seamlessly integrating new members into your Nextcloud ecosystem.
 
-The app can be built by using the provided Makefile by running:
+![Register To Contact Logo](img/registertocontact-logo.jpeg)
+---
 
-    make
+## 📦 Installation
+
+To add this app to your Nextcloud instance, simply place it in the `nextcloud/apps/` directory.
+
+---
+
+## 🔨 Building the App
+
+Building this app is a breeze with the provided Makefile. Ensure you have the prerequisites and then run the following command:
+
+```bash
+make
 
 This requires the following things to be present:
 * make
@@ -31,16 +42,22 @@ The make command will install or update Composer dependencies if a composer.json
 ```
 
 
-## Publish to App Store
+## 🚀 Publishing to the App Store
 
-First get an account for the [App Store](http://apps.nextcloud.com/) then run:
+Ready to share your app with the world? Here’s how:
+
+Secure an account on the Nextcloud App Store [App Store](http://apps.nextcloud.com/).
+Execute:
+
 
     make && make appstore
 
-The archive is located in build/artifacts/appstore and can then be uploaded to the App Store.
+The generated archive will be located in build/artifacts/appstore, ready for you to upload to the App Store.
 
-## Running tests
-You can use the provided Makefile to run all tests by using:
+## 🧪 Running Tests
+
+Leverage the Makefile to run all tests effortlessly:
+
 
     make test
 

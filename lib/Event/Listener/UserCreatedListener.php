@@ -30,6 +30,7 @@ use OCP\Contacts\IManager as IContactsManager;
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
 use OCP\IUser;
+use OCP\User\Events\UserCreatedEvent;
 
 class UserCreatedListener implements IEventListener
 {
@@ -57,7 +58,7 @@ class UserCreatedListener implements IEventListener
     public function handle(Event $event): void
     {
 
-        if (!($event instanceof \OCP\User\Events\UserCreatedEvent)) {
+        if (!($event instanceof UserCreatedEvent)) {
             return;
         }
 
@@ -69,8 +70,8 @@ class UserCreatedListener implements IEventListener
 
         $self = $this;
         $this->userManager->callForAllUsers(
-            function (IUser $registeredUser) use ($self, $newUser): void {
-                $addressBookId = $self->getAddressBookIdForUser($registeredUser);
+            function (IUser $existingUser) use ($self, $newUser): void {
+                $addressBookId = $self->getAddressBookIdForUser($existingUser);
                 $newUserAccount = $this->accountManager->getAccount($newUser);
 
                 $this->contactsManager->createOrUpdate(
@@ -94,10 +95,10 @@ class UserCreatedListener implements IEventListener
 
     private function getUniqueAddressBookUri(IUser $user): string
     {
-        return md5($user->getUID() + time());
+        return md5((string)($user->getUID() + time()));
     }
 
-    private function getAddressBookIdForUser(IUser $user)
+    private function getAddressBookIdForUser(IUser $user): string
     {
         $principalUri = $this->getPrincipalUri($user);
         $addressBookUri = $this->getUniqueAddressBookUri($user);
